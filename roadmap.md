@@ -1,5 +1,7 @@
 ## Roadmaps
 
+<div align="center"><img src="images/rodamaddevops.jpg"></div><hr/>
+
 <div align="center"><img src="images/linux_map.png"></div><hr/>
 
 <div align="center"><img src="images/python_map.png"></div><hr/>
