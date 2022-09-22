@@ -65,3 +65,8 @@ Les Ops, quant à eux, doivent automatiser la création et la mise à jour de l'
 Le schéma suivant illustre les trois axes de la culture DevOps : la collaboration entre Dev et Ops, les processus et l'utilisation des outils :
 
 ![image](https://user-images.githubusercontent.com/107214400/191802064-92ee3b35-4907-4040-ae05-b2448e286de1.png)
+
+Donc, on peut revenir à la culture DevOps avec la définition de Donovan Brown (http://donovanbrown.com/post/what-is-devops):
+*"DevOps est l'union de personnes, de processus et de produits pour permettre une livraison continue de valeur à nos utilisateurs finaux."*
+
+Les avantages d'établir une culture DevOps au sein d'une entreprise sont les suivants :
