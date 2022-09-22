@@ -74,3 +74,15 @@ Système d'exploitation | [Linux, Windows](#systeme-exploitation) | Autre distri
 Protocoles | DHCP, UDP, TCP, HTTP, SSH | Pas comme alternative, vous pouvez simplement apprendre plus tard : NFS, NTP, FTP | Découvrez comment ces protocoles fonctionnent et à quoi ils servent
 Applications | Serveur Web, équilibreur de charge, cache, base de données | | Apprenez comment ils fonctionnent et essayez quelques implémentations (par exemple MySQL pour les bases de données et httpd pour les serveurs Web)
 [Conception du système](https://github.com/TICHANE-JM/conception-systeme) | Disponibilité, fiabilité, évolutivité, performances | Apprendre à concevoir des infrastructures et des systèmes
+
+La seconde . Sérieusement, n'essayez pas de tout maîtriser dans cette liste et de commencer par quelque chose qui vous intéresse. L'ordre n'a aucun sens dans ce cas.
+
+Sujet | Quoi apprendre | Alternatives | Description
+:------|:------|:------|:------:
+Gestion de la configuration et IaC | Ansible and Terraform | CM: Chef, Puppet et Salt. IaC: Pulumi et CloudFormation |
+Cloud | Azure, AWS, GCP | - |
+Conteneurs | Podman et Kubernetes| Docker au lieu de Podman. Nomad au lieu de Kubernetes | 
+CI/CD | Jenkins, GitHub Actions | Gitlab CI, Circle CI, Argo CD |
+Journalisation et tableaux de bord | Elastic Stack, Report Portal, Grafana | Graylog, Splunk |
+Monitoring | Prometheus | Nagios, Datadog | 
+
