@@ -55,3 +55,22 @@ Vous pouvez trouver tous les livres listés ci-dessous dans le dossier [**Ressou
 * [Programmation](#programmation)
 * [Système d'exploitation](#systeme-exploitation)
 * [Chaîne d'outils DevOps](#devops-outils)
+
+<a name="devops"></a>
+## DevOps
+
+### DevOps Roadmap
+
+   * N'essayez PAS de tout apprendre, surtout si vous êtes un débutant complet (l'épuisement professionnel vous fera regretter d'avoir entendu le mot DevOps)
+  * Apprenez-en assez pour dire "Je sais ce qu'est DevOps et je comprends comment le mettre en pratique". Vous pouvez apprendre tout le reste à la demande ou lorsque vous vous sentez prêt.
+
+La liste incontournable
+
+Sujet | Quoi apprendre | Alternatives | Description
+:------|:------|:------|:------:
+Contrôle de version | [Git](#apprendre-git) | - | Le contrôle de version est utilisé partout et Git est la principale technologie de contrôle de version
+Programmation | Au moins un [langage de programmation](#programmation) | Aucun. Ne vous contentez pas d'apprendre uniquement les scripts shell  | Quiconque pratique DevOps devrait connaître la programmation dans une certaine mesure
+Système d'exploitation | [Linux, Windows](#systeme-exploitation) | Autre distribution de Linux | Les systèmes d'exploitation sont un autre incontournable en matière de DevOps
+Protocoles | DHCP, UDP, TCP, HTTP, SSH | Pas comme alternative, vous pouvez simplement apprendre plus tard : NFS, NTP, FTP | Découvrez comment ces protocoles fonctionnent et à quoi ils servent
+Applications | Serveur Web, équilibreur de charge, cache, base de données | | Apprenez comment ils fonctionnent et essayez quelques implémentations (par exemple MySQL pour les bases de données et httpd pour les serveurs Web)
+[Conception du système](https://github.com/TICHANE-JM/conception-systeme) | Disponibilité, fiabilité, évolutivité, performances | Apprendre à concevoir des infrastructures et des systèmes
