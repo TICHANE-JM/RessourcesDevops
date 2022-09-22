@@ -87,5 +87,3 @@ Conteneurs | Podman et Kubernetes| Docker au lieu de Podman. Nomad au lieu de Ku
 CI/CD | Jenkins, GitHub Actions | Gitlab CI, Circle CI, Argo CD |
 Journalisation et tableaux de bord | Elastic Stack, Report Portal, Grafana | Graylog, Splunk |
 Monitoring | Prometheus | Nagios, Datadog | 
-
-### DevOps Roadmap
