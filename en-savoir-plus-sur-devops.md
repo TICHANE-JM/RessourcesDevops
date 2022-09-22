@@ -56,3 +56,12 @@ Le mouvement DevOps repose sur trois axes :
 Ces phases sont réalisées de manière cyclique et itérative tout au long de la vie du projet.
 * **Outils:** Le choix des outils et des produits utilisés par les équipes est très important en DevOps. En effet, lorsque les équipes étaient séparées en Dev et Ops, chaque équipe utilisait leurs outils spécifiques (outils de déploiement pour les développeurs et outils d'infrastructure pour les opérations), ce qui a encore creusé les écarts de communication.
 
+Avec des équipes qui rassemblent le développement et les opérations, et avec cette culture d'unité, les outils utilisés doivent être utilisables et exploitables par tous les membres.
+
+Les développeurs doivent s'intégrer aux outils de surveillance utilisés par les équipes Ops pour détecter les problèmes de performances le plus tôt possible et aux outils de sécurité fournis par Ops pour protéger l'accès aux diverses ressources.
+
+Les Ops, quant à eux, doivent automatiser la création et la mise à jour de l'infrastructure et intégrer le code dans un gestionnaire de code ; c'est ce qu'on appelle l'infrastructure en tant que code, mais cela ne peut se faire qu'en collaboration avec des développeurs qui connaissent l'infrastructure nécessaire aux applications. Les opérations doivent également être intégrées dans les processus et les outils de publication des applications.
+
+Le schéma suivant illustre les trois axes de la culture DevOps : la collaboration entre Dev et Ops, les processus et l'utilisation des outils :
+
+![image](https://user-images.githubusercontent.com/107214400/191802064-92ee3b35-4907-4040-ae05-b2448e286de1.png)
