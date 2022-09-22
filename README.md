@@ -61,7 +61,9 @@ Vous pouvez trouver tous les livres listés ci-dessous dans le dossier [**Ressou
 
 ### DevOps Roadmap
 
-   * N'essayez PAS de tout apprendre, surtout si vous êtes un débutant complet (l'épuisement professionnel vous fera regretter d'avoir entendu le mot DevOps)
+[DevOps Roadmap](https://github.com/TICHANE-JM/RessourcesDevops/roadmap.md)
+
+  * N'essayez PAS de tout apprendre, surtout si vous êtes un débutant complet (l'épuisement professionnel vous fera regretter d'avoir entendu le mot DevOps)
   * Apprenez-en assez pour dire "Je sais ce qu'est DevOps et je comprends comment le mettre en pratique". Vous pouvez apprendre tout le reste à la demande ou lorsque vous vous sentez prêt.
 
 La liste incontournable
@@ -86,3 +88,4 @@ CI/CD | Jenkins, GitHub Actions | Gitlab CI, Circle CI, Argo CD |
 Journalisation et tableaux de bord | Elastic Stack, Report Portal, Grafana | Graylog, Splunk |
 Monitoring | Prometheus | Nagios, Datadog | 
 
+### DevOps Roadmap
