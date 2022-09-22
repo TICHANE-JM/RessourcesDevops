@@ -48,3 +48,10 @@ Vous pouvez trouver tous les livres listés ci-dessous dans le dossier [**Ressou
   </tr>
 </table>
 </center>
+
+* [DevOps Roadmap](#devops-roadmap)
+* [En savoir plus sur DevOps](#en-savoir-plus-sur-DevOps)
+* [Apprendre Git](#apprendre-git)
+* [Programmation](#programmation)
+* [Système d'exploitation](#systeme-exploitation)
+* [Chaîne d'outils DevOps](#devops-outils)
