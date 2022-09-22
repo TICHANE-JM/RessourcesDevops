@@ -38,17 +38,21 @@ La communication et ce lien entre Dev et Ops permet donc un meilleur suivi des d
 production de bout en bout et des déploiements plus fréquents de meilleure qualité, économisant
 de l'argent pour l'entreprise.
 
-Pour faciliter cette collaboration et améliorer la communication entre Dev et Ops, il y a plusieurs
-éléments clés dans les processus à mettre en place, comme dans les exemples suivants :
-      * Des déploiements d'applications plus fréquents avec intégration et livraison continue (appelés CI/CD)
-      * La mise en place et l'automatisation de tests unitaires et d'intégration, avec un processus axé sur le **Behavior-Driven Design (BDD)** ou **Test-Driven Design (TDD)**
-      * La mise en place d'un moyen de recueillir les retours des utilisateurs
-      * Surveillance des applications et de l'infrastructure
+Pour faciliter cette collaboration et améliorer la communication entre Dev et Ops, il y a plusieurs éléments clés dans les processus à mettre en place, comme dans les exemples suivants :
+* Des déploiements d'applications plus fréquents avec intégration et livraison continue (appelés CI/CD)
+* La mise en place et l'automatisation de tests unitaires et d'intégration, avec un processus axé sur le **Behavior-Driven Design (BDD)** ou **Test-Driven Design (TDD)**
+* La mise en place d'un moyen de recueillir les retours des utilisateurs
+* Surveillance des applications et de l'infrastructure
       
 Le mouvement DevOps repose sur trois axes :  
 
-      * **La culture de collaboration:** C'est l'essence même du DevOps, le fait que les équipes ne
-sont plus séparées par des spécialisations en silos (une équipe de développeurs, une
-équipe d'Ops, une équipe de testeurs, etc.), mais au contraire, ces personnes sont amenées
-ensemble en constituant des équipes pluridisciplinaires ayant le même objectif : apporter
-au plus vite une valeur ajoutée au produit.
+ * **La culture de collaboration:** C'est l'essence même du DevOps, le fait que les équipes ne sont plus séparées par des spécialisations en silos (une équipe de développeurs, une équipe d'Ops, une équipe de testeurs, etc.), mais au contraire, ces personnes sont amenées ensemble en constituant des équipes pluridisciplinaires ayant le même objectif : apporter au plus vite une valeur ajoutée au produit.
+ * **Processus:** Pour espérer un déploiement rapide, ces équipes doivent suivre des processus de développement issus de méthodologies agiles avec des phases itératives qui permettent une meilleure qualité des fonctionnalités et un retour rapide. Ces processus doivent non seulement être intégrés dans le workflow de développement avec intégration continue, mais également dans le workflow de déploiement avec livraison et déploiement continus. Le processus DevOps est divisé en plusieurs phases :
+- La planification et la priorisation des fonctionnalités
+- Développement
+- Intégration et livraison continues
+- Déploiement continu
+- Contrôle monitoring continu
+Ces phases sont réalisées de manière cyclique et itérative tout au long de la vie du projet.
+* **Outils:** Le choix des outils et des produits utilisés par les équipes est très important en DevOps. En effet, lorsque les équipes étaient séparées en Dev et Ops, chaque équipe utilisait leurs outils spécifiques (outils de déploiement pour les développeurs et outils d'infrastructure pour les opérations), ce qui a encore creusé les écarts de communication.
+
