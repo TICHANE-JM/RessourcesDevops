@@ -50,7 +50,7 @@ Vous pouvez trouver tous les livres listés ci-dessous dans le dossier [**Ressou
 </center>
 
 * [DevOps Roadmap](#devops-roadmap)
-* [En savoir plus sur DevOps](#en-savoir-plus-sur-DevOps)
+* [En savoir plus sur DevOps](https://github.com/TICHANE-JM/RessourcesDevops/blob/main/en-savoir-plus-sur-devops.md)
 * [Apprendre Git](#apprendre-git)
 * [Programmation](#programmation)
 * [Système d'exploitation](#systeme-exploitation)
