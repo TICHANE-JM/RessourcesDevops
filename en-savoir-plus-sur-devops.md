@@ -70,3 +70,9 @@ Donc, on peut revenir à la culture DevOps avec la définition de Donovan Brown 
 *"DevOps est l'union de personnes, de processus et de produits pour permettre une livraison continue de valeur à nos utilisateurs finaux."*
 
 Les avantages d'établir une culture DevOps au sein d'une entreprise sont les suivants :
+* Une meilleure collaboration et communication dans les équipes, ce qui a un impact humain et social au sein de l'entreprise.
+* Des délais de production plus courts, ce qui se traduit par de meilleures performances et la satisfaction de l'utilisateur final.
+* Réduction des coûts d'infrastructure avec IaC.
+* Un gain de temps considérable avec des cycles itératifs qui réduisent les erreurs d'application et des outils d'automatisation qui réduisent les tâches manuelles, afin que les équipes se concentrent davantage sur le développement de nouvelles fonctionnalités à valeur commerciale ajoutée.
+
+>  Pour plus d'informations sur la culture DevOps et son impact sur la transformation des entreprises, lisez le livre de Gene Kim et Kevin Behr,*Le projet Phoenix : un roman sur l'informatique, DevOps et aider votre entreprise à gagner, et le manuel DevOps : comment créer une agilité, une fiabilité et une sécurité de classe mondiale dans les organisations technologiques* par Gene Kim, Jez Humble, Patrick Debois et John Willis
