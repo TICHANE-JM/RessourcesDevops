@@ -126,3 +126,50 @@ Avec un processus CI (Intégration continue) optimisé et complet, le développe
 ![image](https://user-images.githubusercontent.com/107214400/191963561-93d01285-e2fd-4e34-acdc-ad56a25338da.png)
 
 Ce diagramme montre les étapes cycliques de l'intégration continue qui incluent le code poussé dans le SCM par les membres de l'équipe et l'exécution de la construction et du test par le serveur CI (Intégration Continue). Et le but de ce processus rapide est de fournir une rétroaction rapide aux membres.
+
+Nous venons de voir ce qu'est l'intégration continue, alors regardons maintenant les pratiques de livraison continue.
+
+### Livraison continue (CD)
+
+Une fois l'intégration continue terminée avec succès, l'étape suivante consiste à déployer automatiquement l'application dans un ou plusieurs environnements hors production, ce que l'on appelle le **staging**. Ce processus est appelé **livraison continue (CD).**
+
+Le CD (Livraison continue) commence souvent par un package d'application préparé par CI (intégration continue), qui sera installé selon une liste de tâches automatisées. Ces tâches peuvent être de tout type : décompresser, arrêter et redémarrer le service, copier des fichiers, remplacer la configuration, etc. L'exécution des tests fonctionnels et d'acceptation peut également être effectuée pendant le processus CD (Livraison continue).
+
+Contrairement à CI (intégration continue), CD (Livraison continue) vise à tester l'ensemble de l'application avec toutes ses dépendances. Ceci est très visible dans les applications de microservices composées de plusieurs services et API ; CI (intégration continue) ne testera que le microservice en cours de développement alors qu'une fois déployé dans un environnement de staging, il sera possible de tester et de valider l'intégralité de l'application ainsi que les API et microservices qui la composent.
+
+En pratique, aujourd'hui, il est très courant de lier CI (intégration continue) à CD (Livraison continue) dans un environnement d'intégration ; c'est-à-dire que CI (intégration continue) se déploie en même temps dans un environnement. Il est en effet nécessaire pour que les développeurs puissent avoir à chaque commit non seulement l'exécution de tests unitaires mais aussi une vérification de l'application dans son ensemble (UI et fonctionnel), avec l'intégration des développements des autres membres de l'équipe.
+
+Il est très important que le package généré lors du CI (intégration continue) et qui sera déployé lors du CD (Livraison continue) soit le même qui sera installé sur tous les environnements, et cela devrait être le cas jusqu'à la production. Cependant, il peut y avoir des transformations de fichier de configuration qui diffèrent selon l'environnement, mais le code de l'application (binaires, DLL et JAR) doit rester inchangé.
+
+Ce caractère *immuable*, et inchangeable du code est la seule garantie que l'application vérifiée dans un environnement sera de la même qualité que la version déployée dans l'environnement précédent et la même qui sera déployée dans l'environnement suivant. Si des modifications (améliorations ou corrections de bugs) sont à apporter au code suite à une vérification dans l'un des environnements, une fois effectuées, la modification devra repasser par le cycle CI (intégration continue) et CD (Livraison continue).
+
+Les outils mis en place pour le CI/CD sont souvent complétés par d'autres solutions, qui sont les suivantes :
+* **Un gestionnaire de paquets:** Il constitue l'espace de stockage des packages générés par CI (Intégration continue) et récupérés par CD (Livraison continue). Ces gestionnaires doivent prendre en charge les flux, la gestion des versions et différents types de packages. Il en existe plusieurs sur le marché, tels que Nexus, ProGet, Artifactory et Azure Artifacts.
+* **Un gestionnaire de configuration:** Cela vous permet de gérer les changements de configuration pendant le CD (Livraison continue) ; la plupart des outils CD (Livraison continue) incluent un mécanisme de configuration avec un système de variables.
+
+Dans CD (Livraison continue), le déploiement de l'application dans chaque environnement de staging est déclenché comme suit :
+* Il peut être déclenché automatiquement, suite à une exécution réussie sur un environnement précédent. Par exemple, on peut imaginer un cas où le déploiement dans l'environnement de pré-production se déclenche automatiquement lorsque les tests d'intégration ont été effectués avec succès dans un environnement dédié.
+* Il peut être déclenché manuellement, pour les environnements sensibles comme l'environnement de production, suite à une validation manuelle par une personne chargée de valider le bon fonctionnement de l'application dans un environnement.
+
+Ce qui est important dans un processus CD (Livraison continue), c'est que le déploiement vers l'environnement de production, c'est-à-dire vers l'utilisateur final, soit déclenché manuellement par les utilisateurs autorisés :
+![image](https://user-images.githubusercontent.com/107214400/191966348-1671321f-1b92-40ea-ae74-28ad6c57f339.png)
+
+Ce diagramme montre clairement que le processus CD (Livraison continue) est une continuation du processus CI (Intégration continue). Il représente la chaîne d'étapes CD (Livraison continue), qui sont automatiques pour les environnements de test mais manuelles pour les déploiements de production. Il montre également que le package est généré par CI (Intégration continue) et est stocké dans un gestionnaire de packages et que c'est le même package qui est déployé dans différents environnements.
+
+Maintenant que nous avons examiné le CD, examinons les pratiques de déploiement continu.
+
+### Déploiement continu
+
+Le déploiement continu est une extension du CD (Livraison continue), mais cette fois, avec un processus qui automatise l'ensemble du pipeline CI/CD à partir du moment où le développeur valide son code pour le déploiement en production à travers toutes les étapes de vérification.
+
+Cette pratique est rarement mise en place en entreprise car elle nécessite une large couverture de tests (unitaires, fonctionnels, d'intégration, de performance, etc.) de l'application, et la bonne exécution de ces tests suffit à valider le bon fonctionnement de l'application avec toutes ces dépendances, mais également un déploiement automatisé dans un environnement de production sans aucune action d'approbation.
+
+Le processus de déploiement continu doit également prendre en compte toutes les étapes de restauration de l'application en cas de problème de production.
+
+Le déploiement continu peut être mis en oeuvre avec l'utilisation et la mise en oeuvre de techniques de basculement de fonctionnalités (ou feature flags), qui consistent à *encapsuler* les fonctionnalités de l'application dans des fonctionnalités et à activer ses *fonctionnalités* à la demande, directement en *production*, sans avoir à *redéployer* le code de l'application.
+
+Une autre technique consiste à utiliser une infrastructure de production *blue-green* infrastructure de production, qui se compose de deux environnements de production, un *blue* et un *green*. Nous nous déployons d'abord dans l'environnement *blue* , puis dans le *green*; cela garantira qu'aucun temps d'arrêt n'est nécessaire :
+
+![image](https://user-images.githubusercontent.com/107214400/191967658-e0bc2b69-5c28-407b-bba5-00e12b99f9ac.png)
+
+Le diagramme précédent est presque le même que celui de CD (Livraison continue), mais à la différence près qu'il décrit un déploiement automatisé de bout en bout.
