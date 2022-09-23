@@ -75,4 +75,54 @@ Les avantages d'établir une culture DevOps au sein d'une entreprise sont les su
 * Réduction des coûts d'infrastructure avec IaC.
 * Un gain de temps considérable avec des cycles itératifs qui réduisent les erreurs d'application et des outils d'automatisation qui réduisent les tâches manuelles, afin que les équipes se concentrent davantage sur le développement de nouvelles fonctionnalités à valeur commerciale ajoutée.
 
->  Pour plus d'informations sur la culture DevOps et son impact sur la transformation des entreprises, lisez le livre de Gene Kim et Kevin Behr,*Le projet Phoenix : un roman sur l'informatique, DevOps et aider votre entreprise à gagner, et le manuel DevOps : comment créer une agilité, une fiabilité et une sécurité de classe mondiale dans les organisations technologiques* par Gene Kim, Jez Humble, Patrick Debois et John Willis
+>  Pour plus d'informations sur la culture DevOps et son impact sur la transformation des entreprises, lisez le livre de Gene Kim et Kevin Behr,*Le projet Phoenix : un roman sur l'informatique, DevOps et aider votre entreprise à gagner, et le manuel DevOps : comment créer une agilité, une fiabilité et une sécurité de classe mondiale dans les organisations technologiques* par Gene Kim, Jez Humble, Patrick Debois et John Willis.
+
+## Mise en oeuvre CI/CD et déploiement continue
+
+Nous avons vu précédemment que l'une des pratiques clés de DevOps est le processus d'intégration et de livraison continue, également appelé CI/CD. En fait, derrière les acronymes de CI/CD, il y a trois pratiques :
+* **Intégration continue (CI)**
+* **Livraison continue (CD)**
+* **Déploiement continu**
+
+A quoi correspond chacune de ces pratiques ? Quels sont leurs prérequis et bonnes pratiques ? Sont-ils applicables à tous ?
+Détaillons chacune de ces pratiques, en commençant par l'intégration continue.
+
+### Intégration continue (CI)
+
+Dans la définition suivante donnée par Martin Fowler, il y a trois éléments clés mentionnés, les membres d'une équipe, s'intègrent et le plus rapidement possible :
+
+> *"L'intégration continue est une pratique de développement logiciel où les membres d'une équipe intègrent fréquemment leur travail... Chaque intégration est vérifiée par un build automatisé (test compris) pour détecter les erreurs d'intégration le plus rapidement possible."*
+
+C'est-à-dire que CI (Intégration Continue) est un processus automatique qui vous permet de vérifier l'intégralité du code d'une application à chaque fois qu'un membre de l'équipe effectue une modification. Cette vérification doit être faite le plus rapidement possible.
+
+Nous voyons très clairement la culture DevOps dans CI (intégration continue), avec l'esprit de collaboration et de communication, car l'exécution de CI (Intégration continue) impacte tous les membres en termes de méthodologie de travail et donc de collaboration ; de plus, CI (Intégration continue) nécessite la mise en place de processus (branch, commit, pull request, code review, etc.) avec une automatisation qui se fait avec des outils adaptés à toute l'équipe (Git, Jenkins, Azure DevOps, etc.). Et enfin, CI (intégration continue) doit fonctionner rapidement pour recueillir le plus rapidement possible des retours sur l'intégration du code et ainsi être en mesure de fournir plus rapidement de nouvelles fonctionnalités aux utilisateurs.
+
+#### Mise en oeuvre de CI (Intégration continue)
+
+Pour mettre en place CI (Intégration continue), il est donc nécessaire de disposer d'un **Source Code Manager (SCM)** qui permettra la centralisation du code de tous les membres. Ce gestionnaire de code peut être de n'importe quel type : Git, SVN, ou **Team Foundation Source Control (TFVC)**. Il est également important d'avoir un gestionnaire de build automatique (serveur CI (Intégration continue)) qui prend en charge l'intégration continue comme Jenkins, GitLab CI, TeamCity, Azure Pipelines, GitHub Actions, Travis CI, Circle CI, etc.
+
+> En ce qui me concerne j'utilise Git comme un SCM (Source Code Manager).
+
+Chaque membre de l'équipe travaillera quotidiennement sur le code de l'application, de manière itérative et incrémentielle (comme dans les méthodes agiles et scrum). Chaque tâche ou fonctionnalité doit être partitionnée des autres développements à l'aide de branches.
+
+Régulièrement, voire plusieurs fois par jour, les membres archivent ou commitent leur code et de préférence avec de petits commits (trunks) qui peuvent facilement être corrigés en cas d'erreur. Celui-ci sera donc intégré dans le reste du code de l'application avec tous les autres commits des autres membres.
+
+Cette intégration de tous les commits est le point de départ du processus CI (Intégration continue).
+
+Ce processus, exécuté par le serveur CI (Intégration continue), doit être automatisé et déclenché à chaque commit. Le serveur récupérera le code et procédera comme suit :
+* Créez le package d'application (compilation, transformation de fichier, etc.).
+* Effectuer des tests unitaires (avec couverture de code).
+
+> Il est également possible d'enrichir le processus avec du code statique et une analyse de vulnérabilité avec SonarQube qui est dédié aux tests.
+
+Ce processus CI (Intégration continue) doit être optimisé dès que possible afin qu'il puisse s'exécuter rapidement et que les développeurs puissent avoir un retour rapide sur l'intégration de leur code. Par exemple, un code archivé et qui ne se compile pas ou dont l'exécution des tests échoue peut impacter et bloquer toute l'équipe.
+
+Parfois, de mauvaises pratiques peuvent se traduire par l'échec des tests dans le CI (Intégration continue), la désactivation de l'exécution des tests, en prenant comme arguments : *ce n'est pas grave, il faut livrer rapidement, ou le code qui le compile est indispensable.*
+
+Au contraire, cette pratique peut avoir de lourdes conséquences lorsque les erreurs détectées par les tests se révèlent en production. Le temps gagné pendant le CI (Intégration continue) sera perdu à corriger les erreurs avec des correctifs et à les redéployer rapidement avec le stress. C'est le contraire de la culture DevOps avec une mauvaise qualité d'application pour les utilisateurs finaux et pas de réel retour d'expérience, et, au lieu de développer de nouvelles fonctionnalités, nous passons du temps à corriger les erreurs.
+
+Avec un processus CI (Intégration continue) optimisé et complet, le développeur peut rapidement résoudre son problème et améliorer son code ou en discuter avec le reste de l'équipe et valider son code pour une nouvelle intégration :
+
+![image](https://user-images.githubusercontent.com/107214400/191963561-93d01285-e2fd-4e34-acdc-ad56a25338da.png)
+
+Ce diagramme montre les étapes cycliques de l'intégration continue qui incluent le code poussé dans le SCM par les membres de l'équipe et l'exécution de la construction et du test par le serveur CI (Intégration Continue). Et le but de ce processus rapide est de fournir une rétroaction rapide aux membres.
