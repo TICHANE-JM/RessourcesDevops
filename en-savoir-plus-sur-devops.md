@@ -173,3 +173,118 @@ Une autre technique consiste à utiliser une infrastructure de production *blue-
 ![image](https://user-images.githubusercontent.com/107214400/191967658-e0bc2b69-5c28-407b-bba5-00e12b99f9ac.png)
 
 Le diagramme précédent est presque le même que celui de CD (Livraison continue), mais à la différence près qu'il décrit un déploiement automatisé de bout en bout.
+
+Les processus CI/CD sont donc un élément essentiel de la culture DevOps, le CI (Intégration continue) permettant aux équipes d'intégrer et de tester la cohérence de son code et d'obtenir des retours rapides très régulièrement. CD (Livraison continue) se déploie automatiquement sur un ou plusieurs environnements de staging et offre ainsi la possibilité de tester l'ensemble de l'application jusqu'à son déploiement en production.
+
+Enfin, le déploiement continu automatise le déploiement de l'application depuis la validation vers l'environnement de production.
+
+Ici, nous avons abordé les pratiques essentielles à la culture DevOps, qui sont l'intégration continue, la livraison continue et le déploiement continu.
+
+Dans la section suivante, nous détaillerons une autre pratique DevOps, qui est IaC.
+
+## Comprendre les pratiques IaC
+
+IaC (Infrastructures as Code) est une pratique qui consiste à écrire le code des ressources qui composent une infrastructure.
+
+Cette pratique a commencé à prendre effet avec la montée en puissance de la culture DevOps et avec la modernisation de l'infrastructure cloud. En effet, les équipes Ops qui déploient des infrastructures manuellement prennent du temps pour livrer les changements d'infrastructure en raison d'une gestion incohérente et du risque d'erreurs. Aussi, avec la modernisation du cloud et sa scalabilité, la façon dont une infrastructure est construite nécessite de revoir le provisionnement et de changer les pratiques en adaptant une méthode plus automatisée.
+
+IaC est le processus d'écriture du code des étapes de provisionnement et de configuration des composants d'infrastructure pour automatiser son déploiement de manière reproductible et cohérente.
+
+Avant d'aborder l'utilisation de l'IaC, nous verrons quels sont les avantages de cette pratique.
+
+### Les avantages de l'IaC
+
+Les avantages d'IaC sont les suivants :
+* La standardisation de la configuration de l'infrastructure réduit le risque d'erreur.
+* Le code qui décrit l'infrastructure est versionné et contrôlé dans un gestionnaire de code source.
+* Le code est intégré dans les pipelines CI/CD.
+* Les déploiements qui modifient l'infrastructure sont plus rapides et plus efficaces.
+* Il y a une meilleure gestion, un meilleur contrôle et une réduction des coûts d'infrastructure.
+
+IaC apporte également des avantages à une équipe DevOps en permettant aux Ops d'être plus efficaces sur les tâches d'amélioration de l'infrastructure plutôt que de passer du temps sur la configuration manuelle et en donnant aux Dev la possibilité de mettre à niveau leurs infrastructures et d'apporter des modifications sans avoir à demander plus de ressources Ops.
+
+IaC permet également la création d'environnements éphémères en libre-service qui donneront aux développeurs et aux testeurs plus de flexibilité pour tester de nouvelles fonctionnalités de manière isolée et indépendamment des autres environnements.
+
+### Langages et outils IaC
+
+Les langages et outils utilisés pour coder l'infrastructure peuvent être de différents types ; c'est-à-dire les scripts et les types déclaratifs.
+
+#### Types de script
+
+Il s'agit de scripts tels que Bash, PowerShell ou tout autre langage utilisant les différents clients (SDK) fournis par le fournisseur de cloud ; par exemple, vous pouvez créer un script pour le provisionnement d'une infrastructure Azure avec Azure CLI ou Azure PowerShell.
+
+Le problème de ces langages et outils est qu'ils nécessitent beaucoup de lignes de code car il faut gérer les différents états des ressources manipulées et il faut écrire toutes les étapes de création ou de mise à jour de l'infrastructure souhaitée.
+
+Cependant, ces langages et outils peuvent être très utiles pour des tâches qui automatisent des actions répétitives à effectuer sur une liste de ressources (sélection et requête) ou qui nécessitent des traitements complexes avec une certaine logique à effectuer sur des ressources d'infrastructure comme un script qui automatise la suppression des machines virtuelles qui portent une certaine balise.
+
+#### Types déclaratifs
+
+Ce sont des langages dans lesquels il suffit d'écrire l'état du système ou de l'infrastructure souhaité sous forme de configuration et de propriétés. C'est le cas par exemple de Terraform et Vagrant de HashiCorp, Ansible, le template Azure ARM, PowerShell DSC, Puppet et Chef. L'utilisateur n'a qu'à écrire l'état final de l'infrastructure souhaitée et l'outil se charge de l'appliquer.
+
+#### La topologie IaC
+
+Dans une infrastructure cloud, IaC se divise en plusieurs typologies :
+* Le déploiement et le provisionnement de l'infrastructure
+* La configuration du serveur et le modèle
+* La conteneurisation
+* La configuration et le déploiement dans Kubernetes
+
+Plongeons en profondeur dans chaque topologie.
+
+#### Le déploiement et le provisionnement de l'infrastructure
+
+Le provisionnement consiste à instancier les ressources qui composent l'infrastructure. Il peut s'agir de ressources **Platform as a Service (PaaS)** et les types de ressources sans serveur, telles qu'une application Web, une fonction Azure ou Event Hub, mais également l'ensemble de la partie réseau gérée, telle que le réseau virtuel, les sous-réseaux, les tables de routage ou le pare-feu Azure. Pour les ressources de machine virtuelle, l'étape de provisionnement crée ou met à jour uniquement la ressource cloud de machine virtuelle, mais pas son contenu.
+
+Il existe différents outils de provisionnement tels que Terraform, le modèle ARM, la formation AWS Cloud, l'Azure CLI, Azure PowerShell et également Google Cloud Deployment Manager. Bien sûr, il y en a beaucoup d'autres, mais il est difficile de tous les citer. 
+
+#### Paramétrage du serveur
+
+Cette étape concerne la configuration des machines virtuelles, comme la configuration des répertoires, du montage des disques, la configuration du réseau (pare-feu, proxy, etc.) et l'installation du middleware.
+
+Il existe différents outils de configuration, tels que Ansible, PowerShell DSC, Chef, Puppet et SaltStack. Bien sûr, il y en a beaucoup d'autres, moi je préfère Ansible pour configurer une machine virtuelle.
+
+Pour optimiser les temps de provisionnement et de configuration des serveurs, il est également possible de créer et d'utiliser des modèles de serveurs, également appelés images, qui contiennent l'ensemble de la configuration (hardening, middleware, etc.) des serveurs. Ce sera lors du provisioning du serveur que nous vous indiquerons le template à utiliser, et ainsi, nous aurons, en quelques minutes, un serveur configuré prêt à être utilisé.
+
+Il existe également de nombreux outils IaC pour créer des modèles de serveur, comme aminator (utilisé par Netflix) ou HashiCorp Packer.
+
+#### Infrastructure immuable avec conteneurs
+
+La conteneurisation consiste à déployer des applications dans des conteneurs au lieu de les déployer dans des VM.
+
+Aujourd'hui, il est très clair que la technologie de conteneur à utiliser est Docker et que la configuration d'une image Docker se fait également en code dans un Dockerfile. Ce fichier contient la déclaration de l'image de base, qui représente le bone à utiliser, l'installation des middleware supplémentaires à installer sur l'image, uniquement les fichiers et binaires nécessaires à l'application, et la configuration réseau des ports. Contrairement aux VM, les conteneurs sont dits immuables ; la configuration d'un conteneur ne peut pas être modifiée lors de son exécution.
+
+#### Configuration et déploiement dans Kubernetes
+
+Kubernetes est un orchestrateur de conteneurs - c'est la technologie qui incarne le mieux IaC, à mon avis, car la façon dont il déploie les conteneurs, l'architecture réseau (load balancer, ports, etc.) et la gestion des volumes, ainsi que la protection d'informations sensibles, sont décrites en détail dans les fichiers de spécification YAML.
+
+#### Bonnes pratiques IaC
+
+IaC comme le développement logiciel, nécessite la mise en place de pratiques et de processus qui permettent l'évolution et la maintenance du code d'infrastructure.
+
+Parmi ces pratiques figurent celles du développement logiciel, comme dans ces exemples :
+* Avoir de bons principes de nomenclature.
+* Ne surchargez pas le code avec des commentaires inutiles.
+* Utiliser de petites fonctions.
+* Mettre en oeuvre la gestion des erreurs.
+
+Mais il y a des pratiques plus spécifiques qui, je pense, méritent plus d'attention :
+* **Tout doit être automatisé dans le code:** Lorsqu'on fait de l'IaC, il faut en effet coder et automatiser toutes les étapes de provisioning et ne pas laisser hors code des étapes manuelles qui faussent l'automatisation de l'infrastructure et qui peuvent générer des erreurs. Et si nécessaire, n'hésitez pas à utiliser plusieurs outils comme Terraform et Bash avec les scripts Azure CLI.
+* **Le code doit être dans un gestionnaire de contrôle de code source:** Le code d'infrastructure doit également être dans un SCM pour être versionné, suivi, fusionné et restauré, et donc avoir une meilleure visibilité du code entre Dev et Ops.
+* **Le code d'infrastructure doit être avec le code d'application:** Dans certains cas, cela peut être difficile, mais si possible, il est préférable de placer le code d'infrastructure dans le même référentiel que le code d'application. Il s'agit d'avoir une meilleure organisation du travail entre les développeurs et les opérations, qui partageront le même espace de travail.
+* **Séparation des rôles et des répertoires:** Il est bon de séparer le code de l'infrastructure selon le rôle du code, ainsi vous pouvez créer un répertoire pour le provisioning et pour la configuration des VMs et un autre répertoire qui contiendra le code pour tester l'intégration de l'infrastructure complète.
+* **Intégration dans un processus CI/CD:** L'un des objectifs d'IaC est de pouvoir automatiser le déploiement de l'infrastructure, donc dès le début de sa mise en place, il est nécessaire de mettre en place un processus CI/CD qui va intégrer le code, le tester, et le déployer dans environnements différents. Certains outils, comme Terratest, permettent d'écrire des tests sur du code d'infrastructure. L'une des meilleures pratiques consiste à intégrer le processus CI/CD de l'infrastructure dans le même pipeline que l'application.
+* **Le code doit être idempotent :** L'exécution du code de déploiement de l'infrastructure doit être idempotente ; c'est-à-dire automatiquement exécutable à volonté. Cela signifie que les scripts doivent tenir compte de l'état de l'infrastructure lors de son exécution et ne pas générer d'erreur si la ressource à créer existe déjà ou si une ressource à supprimer a déjà été supprimée. Nous verrons que les langages déclaratifs, comme Terraform, prennent nativement cet aspect d'idempotence. Le code de l'infrastructure, une fois entièrement automatisé, doit permettre la construction et la destruction complète de l'infrastructure applicative.
+* **A utiliser comme documentation:** Le code de l'infrastructure doit être clair et doit pouvoir servir de documentation. En effet, la documentation de l'infrastructure est longue à rédiger et dans de nombreux cas, elle n'est pas mise à jour au fur et à mesure de l'évolution de l'infrastructure.
+* **Le code doit être modulaire:** Dans une infrastructure, les composants ont très souvent le même code, la seule différence est la valeur de leurs propriétés. De plus, ces composants sont utilisés plusieurs fois dans les applications de l'entreprise. Il est donc important d'optimiser les temps d'écriture du code, en le factorisant avec des modules (ou rôles, pour Ansible) qui seront appelés en tant que fonctions. Un autre avantage de l'utilisation des modules est la possibilité de standardiser la nomenclature des ressources et la conformité sur certaines propriétés.
+* **Avoir un environnement de développement:** Le problème avec IaC est qu'il est difficile de tester son code d'infrastructure en cours de développement dans des environnements servant à l'intégration et de tester l'application car changer d'infrastructure peut avoir un impact. Il est donc important d'avoir un environnement de développement même pour IaC qui peut être impacté voire détruit à tout moment.
+
+Pour les tests d'infrastructure locale, certains outils simulent un environnement local, comme Vagrant (de HashiCorp), vous devez donc les utiliser pour tester autant que possible les scripts de code.
+
+Bien sûr, la liste complète des bonnes pratiques est plus longue que cette liste ; toutes les méthodes et processus des pratiques de génie logiciel sont également applicables.
+
+L'IaC est donc, comme les processus CI/CD, une pratique clé de la culture DevOps qui permet, en écrivant du code, le déploiement et la configuration d'une infrastructure. Cependant, l'IaC ne peut être efficace qu'avec l'utilisation d'outils appropriés et la mise en oeuvre de bonnes pratiques.
+
+# RESUMÉ
+
+Nous avons vu que la culture DevOps est une histoire de collaboration, de processus et d'outils. Ensuite, nous avons détaillé les différentes étapes du processus CI/CD et expliqué la différence entre et ce déploiement continu.
+Enfin, la dernière partie expliquait comment utiliser IaC, avec ses bonnes pratiques.
